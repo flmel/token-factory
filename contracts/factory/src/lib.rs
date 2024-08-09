@@ -3,9 +3,7 @@ use near_contract_standards::{
     fungible_token::metadata::FungibleTokenMetadata, non_fungible_token::TokenId,
 };
 use near_sdk::{
-    env, near, serde_json,
-    store::{IterableMap, LookupMap},
-    AccountId, BorshStorageKey, Gas, NearToken, PanicOnDefault, Promise,
+    env, json_types::U128, near, serde_json, store::{IterableMap, LookupMap}, AccountId, BorshStorageKey, Gas, NearToken, PanicOnDefault, Promise
 };
 
 const FT_WASM_CODE: &[u8] = include_bytes!("../../token/res/fungible_token.wasm");
@@ -23,7 +21,7 @@ pub struct Contract {
 #[derive(Clone)]
 pub struct TokenArgs {
     owner_id: AccountId,
-    total_supply: u128,
+    total_supply: U128,
     metadata: FungibleTokenMetadata,
 }
 
